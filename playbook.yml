@@ -8,9 +8,9 @@
     - nodejs
     - postgres
     # - redis
-    # - imagemagick
+    - imagemagick
     # - nginx
     # - aws-cli
-    # - php7
+    - php7
 
 ...
