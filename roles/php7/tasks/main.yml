@@ -1,0 +1,23 @@
+---
+- name: Add PHP7 Repository
+  become: True
+  apt_repository: repo="ppa:ondrej/php" state=present
+  register: ppaphp
+
+- name: Install PHP7 and PHP-FPM
+  become: True
+  register: phpinstall
+  when: ppaphp|success
+  apt: pkg={{ item }} state=installed update_cache=true
+  with_items:
+    - php7.1-fpm
+    - php7.1-mysql
+    - php7.1-curl
+    - php7.1-cli
+    - php7.1-mcrypt
+    - php7.1-gd
+    - php7.1-XMLWriter
+  notify:
+    - Start PHP-FPM
+
+...

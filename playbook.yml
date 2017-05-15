@@ -11,5 +11,6 @@
     # - imagemagick
     # - nginx
     # - aws-cli
+    # - php7
 
 ...

@@ -1,0 +1,9 @@
+---
+- name: Start PHP-FPM
+  become: True
+  service: name=php7.1-fpm state=started
+
+- name: Restart PHP-FPM
+  become: True
+  service: name=php7.1-fpm state=restarted
+...
