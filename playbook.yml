@@ -7,10 +7,10 @@
     - customize_git
     - nodejs
     - postgres
-    # - redis
     - imagemagick
-    # - nginx
-    # - aws-cli
+    - nginx
     - php7
+    # - aws-cli
+    # - redis
 
 ...
