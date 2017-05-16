@@ -35,7 +35,7 @@
 
 - name: Add Application Configuration
   become: True
-  template: src={{ application_name }}.j2 dest/etc/nginx/sites-available/{{ application_name }}.conf owner=root group=root
+  template: src={{ application_name }}.j2 dest=/etc/nginx/sites-available/{{ application_name }}.conf owner=root group=root
   tags:
     - vhost
   notify:
