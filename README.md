@@ -13,3 +13,4 @@ Provision Ubuntu 14.04 Vagrant machine with Ansible. Although roles on their own
  - Ubuntu Packages
  - Vagrant Specifics
  - Git Customization
+ - AWS CLI

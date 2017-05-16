@@ -10,7 +10,7 @@
     - imagemagick
     - nginx
     - php7
-    # - aws-cli
+    - aws-cli
     # - redis
 
 ...
