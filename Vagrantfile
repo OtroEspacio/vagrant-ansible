@@ -6,7 +6,6 @@ Vagrant.configure("2") do |config|
 
   # vm definition taken from http://stackoverflow.com/a/21959961/1407371
   config.vm.define :test_ansible do |machine|
-    machine.vm.synced_folder "./", "/vagrant"
     machine.vm.network :forwarded_port, guest: 80, host: 8000
     machine.vm.hostname = "vagrant.machine"
   end
