@@ -30,13 +30,24 @@
   become: True
   service: name=postgresql state=restarted
 
+# For rails apps, the user should be able to login, createdb, be superuser, and more.
+# Mainly because of destructive task such as rake db:create or rake db:test:prepare or running tests
+# with rspec
+# More options on the role_attr_flags in postgresql_user docs: http://docs.ansible.com/ansible/latest/postgresql_user_module.html
 - name: Add Application User
-  postgresql_user: name={{ user.name }} password={{ user.password }} encrypted=False role_attr_flags='NOSUPERUSER,INHERIT,NOCREATEDB,NOCREATEROLE,NOREPLICATION' state=present
+  postgresql_user: name={{ user.name }} password={{ user.password }} encrypted=False role_attr_flags='SUPERUSER,INHERIT,CREATEDB,CREATEROLE,LOGIN' state=present
   become: True
   become_user: postgres
 
 - name: Add Application Database
   postgresql_db: name={{ database.name }} login_user=postgres encoding=UTF8 lc_collate={{ locale }} lc_ctype={{ locale }} owner={{ user.name }} state=present
+  become: True
+  become_user: postgres
+  notify:
+    - Restart Pgsql
+
+- name: Add Application Test Database
+  postgresql_db: name={{ database.name }}_test login_user=postgres encoding=UTF8 lc_collate={{ locale }} lc_ctype={{ locale }} owner={{ user.name }} state=present
   become: True
   become_user: postgres
   notify:
