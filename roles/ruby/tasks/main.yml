@@ -6,14 +6,14 @@
   args:
     creates: /home/{{ system.user_name }}/.rvm/bin/rvm
 
-- name: Installing Ruby
+- name: Installing Ruby {{ ruby.version }}
   become: True
   become_user: "{{ system.user_name }}"
   shell: "{{ rvm.path }}/rvm install {{ item }}"
   with_items:
     - ruby-{{ ruby.version }}
 
-- name: Set Ruby 2.3.1 as default Ruby
+- name: Set Ruby {{ ruby.version }} as default Ruby
   become: True
   become_user: "{{ system.user_name }}"
   shell: "{{ rvm.path }}/rvm alias create default ruby-{{ ruby.version }}"
