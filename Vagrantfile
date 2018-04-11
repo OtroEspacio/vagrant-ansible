@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 
   # vm definition taken from http://stackoverflow.com/a/21959961/1407371
-  config.vm.define :test_ansible do |machine|
+  config.vm.define :vagrant_ansible do |machine|
     machine.vm.network :forwarded_port, guest: 80, host: 8000
     machine.vm.hostname = "vagrant.machine"
   end
