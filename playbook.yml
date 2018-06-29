@@ -11,6 +11,7 @@
     - nginx
     - php7
     - aws-cli
-    # - redis
+    - role: mysql
+      become: True
 
 ...
