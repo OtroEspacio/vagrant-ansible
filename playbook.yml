@@ -4,12 +4,12 @@
     - ubuntu_packages
     - vagrant
     - ruby
-    # - nodejs
+    - nvm
     # - postgres
-    # - imagemagick
     # - nginx
     # - php7
     # - aws-cli
+    # - imagemagick
     # - role: mysql
     #   become: True
   gather_facts: no

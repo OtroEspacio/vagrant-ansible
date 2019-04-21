@@ -1,0 +1,17 @@
+---
+- name: Install NVM
+  git: repo=https://github.com/creationix/nvm
+       dest=~/.nvm version={{ nvm.version }}
+
+- name: Source NVM in ~/.profile
+  lineinfile: >
+    dest=~/.profile
+    line="source ~/.nvm/nvm.sh"
+    create=yes
+
+- name: Install Node LTS
+  shell: bash -ic ". ~/.nvm/nvm.sh && nvm install --lts"
+  register: nvm_install_result
+  changed_when: "nvm_install_result != 'is already installed'"
+
+...

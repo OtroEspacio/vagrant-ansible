@@ -1,0 +1,7 @@
+---
+
+nvm:
+  version: v0.34.0
+  node_version: lts
+
+...
