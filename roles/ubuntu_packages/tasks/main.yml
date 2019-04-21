@@ -1,10 +1,6 @@
 ---
-  # man aptitude for safe upgrade info
-- name: Perform Safe Upgrade
-  become: True
-  apt: upgrade=safe update_cache=yes
 
-- name: Installing packages
+- name: Install Basic Packages
   become: True
   apt: pkg={{ item }} state=installed update_cache=yes
   with_items:
@@ -14,7 +10,7 @@
     - tree
     - htop
     - build-essential
-    - python-software-properties
+    - software-properties-common
     - vim
     - libxslt-dev
     - libxml2-dev
@@ -27,22 +23,8 @@
     - libncurses5-dev
     - unzip
     - wget
-    - unattended-upgrades
-    - ntp
-  notify:
-    - Start NTP
 
 - name: Set locale to {{ locale }}
   locale_gen: name={{ locale }} state=present
-
-- name: Add Periodic Configuration
-  become: True
-  copy: src=10periodic dest=/etc/apt/apt.conf.d/10periodic owner=root group=root
-
-- name: Add Unattended Upgrade Configuration
-  become: True
-  copy: src=50unattended-upgrades dest=/etc/apt/apt.conf.d/50unattended-upgrades owner=root group=root
-  notify:
-    - Restart Unattended Upgrades
 
 ...

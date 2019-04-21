@@ -3,15 +3,17 @@
   roles:
     - ubuntu_packages
     - vagrant
-    - ruby
-    - customize_git
-    - nodejs
-    - postgres
-    - imagemagick
-    - nginx
-    - php7
-    - aws-cli
-    - role: mysql
-      become: True
+    # - ruby
+    # - nodejs
+    # - postgres
+    # - imagemagick
+    # - nginx
+    # - php7
+    # - aws-cli
+    # - role: mysql
+    #   become: True
+  gather_facts: no
+  pre_tasks:
+    - raw: sudo apt install -y python
 
 ...
