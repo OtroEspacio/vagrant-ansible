@@ -3,7 +3,7 @@
   roles:
     - ubuntu_packages
     - vagrant
-    # - ruby
+    - ruby
     # - nodejs
     # - postgres
     # - imagemagick

@@ -1,3 +1,4 @@
 .DS_Store
 .vagrant/
 playbook.retry
+ubuntu-bionic-18.04-cloudimg-console.log
