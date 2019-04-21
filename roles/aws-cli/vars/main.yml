@@ -1,7 +1,0 @@
----
-aws_access_key: ACCESSKEY
-aws_secret_key: SECRETKEY
-aws_region: us-east-1
-aws_format: json
-
-...

@@ -6,12 +6,7 @@
     - ruby
     - nvm
     # - postgres
-    # - nginx
-    # - php7
-    # - aws-cli
     # - imagemagick
-    # - role: mysql
-    #   become: True
   gather_facts: no
   pre_tasks:
     - raw: sudo apt install -y python

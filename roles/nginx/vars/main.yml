@@ -1,9 +1,0 @@
----
-application_name: localnona
-
-production:
-  domain: localnona.com
-
-staging:
-  domain: staging.localnona.com
-...
