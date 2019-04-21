@@ -6,7 +6,7 @@
     - ruby
     - nvm
     - postgres
-    # - imagemagick
+    - imagemagick
   gather_facts: no
   pre_tasks:
     - raw: sudo apt install -y python
