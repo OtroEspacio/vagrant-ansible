@@ -1,11 +1,11 @@
 ---
 locale: en_US.UTF-8
-version: 9.4
-repo: 'deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main'
+version: 9.6
+repo: 'deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main'
 install_development_headers: True
 
 database:
-  name: application_x
+  name: application
 
 user:
   name: vagrant

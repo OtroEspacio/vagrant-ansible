@@ -40,14 +40,30 @@
   become_user: postgres
 
 - name: Add Application Database
-  postgresql_db: name={{ database.name }}_development login_user=postgres encoding=UTF8 lc_collate={{ locale }} lc_ctype={{ locale }} owner={{ user.name }} state=present
+  postgresql_db: >
+    name={{ database.name }}_development
+    login_user=postgres
+    encoding=UTF8
+    lc_collate={{ locale }}
+    lc_ctype={{ locale }}
+    owner={{ user.name }}
+    template=template0
+    state=present
   become: True
   become_user: postgres
   notify:
     - Restart Pgsql
 
 - name: Add Application Test Database
-  postgresql_db: name={{ database.name }}_test login_user=postgres encoding=UTF8 lc_collate={{ locale }} lc_ctype={{ locale }} owner={{ user.name }} state=present
+  postgresql_db: >
+    name={{ database.name }}_test
+    login_user=postgres
+    encoding=UTF8
+    lc_collate={{ locale }}
+    lc_ctype={{ locale }}
+    owner={{ user.name }}
+    template=template0
+    state=present
   become: True
   become_user: postgres
   notify:

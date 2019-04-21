@@ -5,7 +5,7 @@
     - vagrant
     - ruby
     - nvm
-    # - postgres
+    - postgres
     # - imagemagick
   gather_facts: no
   pre_tasks:
